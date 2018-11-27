@@ -8,4 +8,3 @@ C:\Users\Yao\source\repos\FOV\FOV\obj\Debug\FOV.exe
 C:\Users\Yao\source\repos\FOV\FOV\obj\Debug\FOV.pdb
 C:\Users\Yao\source\repos\FOV\FOV\obj\Debug\FOV.Fov.resources
 C:\Users\Yao\source\repos\FOV\FOV\obj\Debug\FOV.csproj.CopyComplete
-C:\Users\Yao\source\repos\FOV\FOV\obj\Debug\FOV.csprojAssemblyReference.cache

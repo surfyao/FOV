@@ -1,0 +1,11 @@
+C:\Users\Yao\source\repos\FOV\FOV\bin\Debug\FOV.exe.config
+C:\Users\Yao\source\repos\FOV\FOV\bin\Debug\FOV.exe
+C:\Users\Yao\source\repos\FOV\FOV\bin\Debug\FOV.pdb
+C:\Users\Yao\source\repos\FOV\FOV\obj\Debug\FOV.Properties.Resources.resources
+C:\Users\Yao\source\repos\FOV\FOV\obj\Debug\FOV.csproj.GenerateResource.cache
+C:\Users\Yao\source\repos\FOV\FOV\obj\Debug\FOV.csproj.CoreCompileInputs.cache
+C:\Users\Yao\source\repos\FOV\FOV\obj\Debug\FOV.exe
+C:\Users\Yao\source\repos\FOV\FOV\obj\Debug\FOV.pdb
+C:\Users\Yao\source\repos\FOV\FOV\obj\Debug\FOV.Fov.resources
+C:\Users\Yao\source\repos\FOV\FOV\obj\Debug\FOV.csproj.CopyComplete
+C:\Users\Yao\source\repos\FOV\FOV\obj\Debug\FOV.csprojAssemblyReference.cache

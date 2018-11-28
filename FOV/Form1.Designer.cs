@@ -118,6 +118,12 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine();
+            this.JTLP = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.JTLP01 = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -140,6 +146,9 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.AliceBlue;
+            this.tabPage1.Controls.Add(this.label54);
+            this.tabPage1.Controls.Add(this.JTLP01);
+            this.tabPage1.Controls.Add(this.label55);
             this.tabPage1.Controls.Add(this.label51);
             this.tabPage1.Controls.Add(this.FDBL);
             this.tabPage1.Controls.Add(this.label50);
@@ -518,6 +527,9 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FloralWhite;
+            this.tabPage2.Controls.Add(this.label53);
+            this.tabPage2.Controls.Add(this.JTLP);
+            this.tabPage2.Controls.Add(this.label52);
             this.tabPage2.Controls.Add(this.label45);
             this.tabPage2.Controls.Add(this.label44);
             this.tabPage2.Controls.Add(this.label29);
@@ -1093,6 +1105,67 @@
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             // 
+            // JTLP
+            // 
+            this.JTLP.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.JTLP.Enabled = false;
+            this.JTLP.Location = new System.Drawing.Point(204, 368);
+            this.JTLP.Name = "JTLP";
+            this.JTLP.Size = new System.Drawing.Size(100, 25);
+            this.JTLP.TabIndex = 99;
+            this.JTLP.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("宋体", 13.91597F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label52.Location = new System.Drawing.Point(18, 369);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(178, 24);
+            this.label52.TabIndex = 98;
+            this.label52.Text = "镜头所需解析度";
+            this.label52.Click += new System.EventHandler(this.label52_Click);
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("宋体", 13.91597F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label53.Location = new System.Drawing.Point(334, 369);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(70, 24);
+            this.label53.TabIndex = 100;
+            this.label53.Text = "lp/mm";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("宋体", 13.91597F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label54.Location = new System.Drawing.Point(329, 368);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(70, 24);
+            this.label54.TabIndex = 103;
+            this.label54.Text = "lp/mm";
+            // 
+            // JTLP01
+            // 
+            this.JTLP01.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.JTLP01.Enabled = false;
+            this.JTLP01.Location = new System.Drawing.Point(212, 367);
+            this.JTLP01.Name = "JTLP01";
+            this.JTLP01.Size = new System.Drawing.Size(100, 25);
+            this.JTLP01.TabIndex = 102;
+            this.JTLP01.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("宋体", 13.91597F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label55.Location = new System.Drawing.Point(13, 368);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(178, 24);
+            this.label55.TabIndex = 101;
+            this.label55.Text = "镜头所需解析度";
+            // 
             // Fov
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -1208,6 +1281,12 @@
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.TextBox FDBL;
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
+        private System.Windows.Forms.TextBox JTLP;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.TextBox JTLP01;
+        private System.Windows.Forms.Label label55;
     }
 }
 

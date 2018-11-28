@@ -111,6 +111,7 @@ namespace FOV
             double ppi;
             double focus;
             double fdbl;
+            int jtlp01;
             if ((this.Resolution01.Text.Trim() == "") || (this.Resolution02.Text.Trim() == "") || (this.Pixelsize.Text.Trim() == "") || (this.WD.Text.Trim() == "") || (this.Focus.Text.Trim() == ""))
             {
                 MessageBox.Show("请输入完整信息", "错误");
@@ -146,6 +147,9 @@ namespace FOV
 
             fdbl = formatsize01 / fovsize01;
             FDBL.Text = Math.Round(fdbl, 2).ToString();
+
+            jtlp01 = System.Convert.ToInt32(500 / pixelsize);
+            JTLP01.Text = jtlp01.ToString();
 
         }
 
@@ -264,6 +268,7 @@ namespace FOV
             double f02;
             double f020;
             double wd020;
+            int jtlp;
             if ((this.RS01.Text.Trim() == "") || (this.Fov02.Text.Trim() == "") || (this.PS02.Text.Trim() == "") || (this.WD02.Text.Trim() == "") )
             {
                 MessageBox.Show("请输入完整信息", "错误");
@@ -320,8 +325,10 @@ namespace FOV
             {
               F020.Text = Math.Round(f020, 2).ToString();
             }
+            jtlp = System.Convert.ToInt32(1000 / ps02/2); 
             wd020 = (fov02 * f020) / (rs01 * ps02) * 1000;
             WD020.Text = Math.Round(wd020, 0).ToString();
+            JTLP.Text = jtlp.ToString();
         }
 
         private void WD020_TextChanged(object sender, EventArgs e)
@@ -393,6 +400,21 @@ namespace FOV
         private void tabPage1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void label52_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

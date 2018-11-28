@@ -111,45 +111,92 @@ namespace FOV
             double ppi;
             double focus;
             double fdbl;
+            double inch;
+            float in_fdbl;
             int jtlp01;
-            if ((this.Resolution01.Text.Trim() == "") || (this.Resolution02.Text.Trim() == "") || (this.Pixelsize.Text.Trim() == "") || (this.WD.Text.Trim() == "") || (this.Focus.Text.Trim() == ""))
-            {
-                MessageBox.Show("请输入完整信息", "错误");
-                return;
 
+            if (checkBox1.Checked == false)
+            {
+                if ((this.Resolution01.Text.Trim() == "") || (this.Resolution02.Text.Trim() == "") || (this.Pixelsize.Text.Trim() == "") || (this.WD.Text.Trim() == "") || (this.Focus.Text.Trim() == ""))
+                {
+                    MessageBox.Show("请输入完整信息", "错误");
+                    return;
+
+                }
+            }
+            else
+            {
+                if ((this.Resolution01.Text.Trim() == "") || (this.Resolution02.Text.Trim() == "") || (this.Pixelsize.Text.Trim() == "") || (this.TB_FDBL.Text.Trim() == "") )
+                {
+                    MessageBox.Show("请输入完整信息", "错误");
+                    return;
+
+                }
             }
 
 
 
             resolution01 = double.Parse(Resolution01.Text);
             resolution02 = double.Parse(Resolution02.Text);
-            wd = double.Parse(WD.Text);
-            focus = double.Parse(Focus.Text);
+            
+
             pixelsize = double.Parse(Pixelsize.Text);
+    
+
+
 
             formatsize01 = resolution01 * (pixelsize / 1000);
             formatsize02 = resolution02 * (pixelsize / 1000);
-            formatsize03 = Math.Sqrt(formatsize01* formatsize01+ formatsize02 * formatsize02);
-            
+            formatsize03 = Math.Sqrt(formatsize01 * formatsize01 + formatsize02 * formatsize02);
+            inch = formatsize03 / 16;
+
             Formatsize01.Text = Math.Round(formatsize01, 2).ToString();
             Formatsize02.Text = Math.Round(formatsize02, 2).ToString();
             Formatsize03.Text = Math.Round(formatsize03, 2).ToString();
-            
-            
+            INCH_TXT.Text = Math.Round(inch, 1).ToString();
 
-            fovsize01 = (formatsize01 * wd) / focus;
-            fovsize02 = (formatsize02 * wd) / focus;
-            Fovsize01.Text = Math.Round(fovsize01, 2).ToString();
-            Fovsize02.Text = Math.Round(fovsize02, 2).ToString();
 
-            ppi = fovsize01 / resolution01 * 1000;
-            PPI.Text = Math.Round(ppi, 2).ToString();
 
-            fdbl = formatsize01 / fovsize01;
-            FDBL.Text = Math.Round(fdbl, 2).ToString();
 
-            jtlp01 = System.Convert.ToInt32(500 / pixelsize);
-            JTLP01.Text = jtlp01.ToString();
+            if (checkBox1.Checked == true)
+            {
+                in_fdbl = float.Parse(TB_FDBL.Text);
+
+                fovsize01 = formatsize01 / in_fdbl;
+                fovsize02 = formatsize02 / in_fdbl;
+                Fovsize01.Text = Math.Round(fovsize01, 2).ToString();
+                Fovsize02.Text = Math.Round(fovsize02, 2).ToString();
+
+                ppi = fovsize01 / resolution01 * 1000;
+                PPI.Text = Math.Round(ppi, 2).ToString();
+
+                fdbl = in_fdbl;
+                FDBL.Text = Math.Round(fdbl, 4).ToString();
+
+                jtlp01 = System.Convert.ToInt32(500 / pixelsize);
+                JTLP01.Text = jtlp01.ToString();
+            }
+            else
+            {
+                wd = double.Parse(WD.Text);
+                focus = double.Parse(Focus.Text);
+
+                fovsize01 = (formatsize01 * wd) / focus;
+                fovsize02 = (formatsize02 * wd) / focus;
+                Fovsize01.Text = Math.Round(fovsize01, 2).ToString();
+                Fovsize02.Text = Math.Round(fovsize02, 2).ToString();
+
+                ppi = fovsize01 / resolution01 * 1000;
+                PPI.Text = Math.Round(ppi, 2).ToString();
+
+                fdbl = formatsize01 / fovsize01;
+                FDBL.Text = Math.Round(fdbl, 4).ToString();
+
+                jtlp01 = System.Convert.ToInt32(500 / pixelsize);
+                JTLP01.Text = jtlp01.ToString();
+            }
+
+ 
 
         }
 
@@ -157,45 +204,90 @@ namespace FOV
         {
             switch (RC.Text.Trim())
             {
-                case "0.3MP":
-                    Resolution01.Text = "640";
-                    Resolution02.Text = "480";
-                    break;
-                case "0.5MP":
-                    Resolution01.Text = "808";
-                    Resolution02.Text = "608";
-                    break;
-                case "1.3MP":
-                    Resolution01.Text = "1280";
-                    Resolution02.Text = "1024";
-                    break;
-                case "1.6MP":
-                    Resolution01.Text = "1440";
-                    Resolution02.Text = "1080";
-                    break;
-                case "2.3MP":
-                    Resolution01.Text = "1920";
-                    Resolution02.Text = "1200";
-                    break;
-                case "3MP":
-                    Resolution01.Text = "2048";
-                    Resolution02.Text = "1536";
-                    break;
-                case "5MP":
+                case "CA050-IMX264":
                     Resolution01.Text = "2448";
                     Resolution02.Text = "2048";
+                    Pixelsize.Text = "3.45";
                     break;
-                case "6MP":
+                case "CA050-PYTHON5000":
+                    Resolution01.Text = "2592";
+                    Resolution02.Text = "2048";
+                    Pixelsize.Text = "4.8";
+                    break;
+                case "CA060-IMX178":
                     Resolution01.Text = "3072";
                     Resolution02.Text = "2048";
+                    Pixelsize.Text = "2.4";
                     break;
-                case "8MP":
-                    Resolution01.Text = "3264";
-                    Resolution02.Text = "2448";
+                case "CH089-IMX276":
+                    Resolution01.Text = "4096";
+                    Resolution02.Text = "2160";
+                    Pixelsize.Text = "3.45";
                     break;
-                case "10MP":
-                    Resolution01.Text = "3672";
-                    Resolution02.Text = "2754";
+                case "CH120-IMX304":
+                    Resolution01.Text = "4096";
+                    Resolution02.Text = "3000";
+                    Pixelsize.Text = "3.45";
+                    break;
+                case "CH250-GMAX0505":
+                    Resolution01.Text = "5120";
+                    Resolution02.Text = "5120";
+                    Pixelsize.Text = "2.5";
+                    break;
+                case "CH250-PYTHON25K":
+                    Resolution01.Text = "5120";
+                    Resolution02.Text = "5120";
+                    Pixelsize.Text = "4.5";
+                    break;
+                case "CH290-KAI29050":
+                    Resolution01.Text = "6576";
+                    Resolution02.Text = "4384";
+                    Pixelsize.Text = "5.5";
+                    break;
+                case "101MC-IMX461":
+                    Resolution01.Text = "11648";
+                    Resolution02.Text = "8742";
+                    Pixelsize.Text = "3.76";
+                    break;
+                case "CH1510-IMX411":
+                    Resolution01.Text = "14208";
+                    Resolution02.Text = "10640";
+                    Pixelsize.Text = "3.76";
+                    break;
+                case "LineScan-8K 5um":
+                    Resolution01.Text = "8192";
+                    Resolution02.Text = "1";
+                    Pixelsize.Text = "5";
+                    break;
+                case "LineScan-8K 7um":
+                    Resolution01.Text = "8192";
+                    Resolution02.Text = "1";
+                    Pixelsize.Text = "7";
+                    break;
+                case "LineScan-16K 3.5um":
+                    Resolution01.Text = "16384";
+                    Resolution02.Text = "1";
+                    Pixelsize.Text = "3.5";
+                    break;
+                case "LineScan-16K 5um":
+                    Resolution01.Text = "16384";
+                    Resolution02.Text = "1";
+                    Pixelsize.Text = "5";
+                    break;
+                case "CE050-AR0521":
+                    Resolution01.Text = "2592";
+                    Resolution02.Text = "1944";
+                    Pixelsize.Text = "2.2";
+                    break;
+                case "CE200-IMX183":
+                    Resolution01.Text = "5472";
+                    Resolution02.Text = "3684";
+                    Pixelsize.Text = "2.4";
+                    break;
+                case "CA023-IMX249":
+                    Resolution01.Text = "1920";
+                    Resolution02.Text = "1200";
+                    Pixelsize.Text = "5.86";
                     break;
 
 
@@ -209,42 +301,67 @@ namespace FOV
                 case "0.3MP":
                     RS01.Text = "640";
                     RS02.Text = "480";
+                    PS02.Text = "6";
                     break;
                 case "0.5MP":
                     RS01.Text = "808";
                     RS02.Text = "608";
+                    PS02.Text = "4.8";
                     break;
                 case "1.3MP":
                     RS01.Text = "1280";
                     RS02.Text = "1024";
+                    PS02.Text = "4.8";
                     break;
                 case "1.6MP":
                     RS01.Text = "1440";
                     RS02.Text = "1080";
+                    PS02.Text = "3.45";
                     break;
                 case "2.3MP":
                     RS01.Text = "1920";
                     RS02.Text = "1200";
+                    PS02.Text = "5.86";
                     break;
                 case "3MP":
+                    RS01.Text = "1920";
+                    RS02.Text = "1440";
+                    PS02.Text = "3.69";
+                    break;
+                case "3.2MP":
                     RS01.Text = "2048";
                     RS02.Text = "1536";
+                    PS02.Text = "3.45";
                     break;
                 case "5MP":
                     RS01.Text = "2448";
                     RS02.Text = "2048";
+                    PS02.Text = "3.45";
                     break;
                 case "6MP":
                     RS01.Text = "3072";
                     RS02.Text = "2048";
+                    PS02.Text = "2.4";
                     break;
                 case "8MP":
                     RS01.Text = "3264";
                     RS02.Text = "2448";
+                    PS02.Text = "5.5";
                     break;
                 case "10MP":
                     RS01.Text = "3672";
                     RS02.Text = "2754";
+                    PS02.Text = "1.67";
+                    break;
+                case "12MP":
+                    RS01.Text = "4024";
+                    RS02.Text = "3036";
+                    PS02.Text = "3.45";
+                    break;
+                case "20MP":
+                    RS01.Text = "5472";
+                    RS02.Text = "3648";
+                    PS02.Text = "2.4";
                     break;
             }
         }
@@ -366,12 +483,27 @@ namespace FOV
 
             tf = (mhq03 * ff03 * wd03 * wd03) / ((f03 * f03)+(mhq03*ff03*wd03));
             tr = (mhq03 * ff03 * wd03 * wd03) / ((f03 * f03) - (mhq03 * ff03 * wd03));
-            tt = tf + tr;
-            js = 2 * mhq03 * ff03;
-            TF.Text = Math.Round(tf, 2).ToString();
-            TR.Text = Math.Round(tr, 2).ToString();
-            TT.Text = Math.Round(tt, 2).ToString();
-            JS.Text = Math.Round(js, 2).ToString();
+            if (tr>0)
+            {
+                tt = tf + tr;
+                js = 2 * mhq03 * ff03;
+                TF.Text = Math.Round(tf, 2).ToString();
+                TR.Text = Math.Round(tr, 2).ToString();
+                TT.Text = Math.Round(tt, 2).ToString();
+                JS.Text = Math.Round(js, 2).ToString();
+
+            }
+            else
+            {
+                tt = tf;
+                js = 2 * mhq03 * ff03;
+                TF.Text = Math.Round(tf, 2).ToString();
+                TR.Text = "∞";
+                TT.Text = "∞";
+                JS.Text = Math.Round(js, 2).ToString();
+
+            }
+
 
 
 
@@ -413,6 +545,61 @@ namespace FOV
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cal_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("calc.exe");
+        }
+
+        private void cal_Click_1(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("calc.exe");
+        }
+
+        private void FDBL_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                Focus.Enabled = false;
+                WD.Enabled = false;
+                TB_FDBL.Enabled = true;
+                Focus.Text = "-";
+                WD.Text = "-";
+
+
+
+            }
+            else
+            {
+                Focus.Enabled = true;
+                WD.Enabled = true;
+                TB_FDBL.Enabled =false;
+                TB_FDBL.Text = "-";
+
+            }
+        }
+
+        private void label56_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_2(object sender, EventArgs e)
         {
 
         }

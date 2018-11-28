@@ -1,0 +1,12 @@
+C:\Users\Yao\source\repos\surfyao\FOV\FOV\bin\Release\FOV.exe.config
+C:\Users\Yao\source\repos\surfyao\FOV\FOV\bin\Release\FOV.exe
+C:\Users\Yao\source\repos\surfyao\FOV\FOV\bin\Release\FOV.pdb
+C:\Users\Yao\source\repos\surfyao\FOV\FOV\bin\Release\IrisSkin4.dll
+C:\Users\Yao\source\repos\surfyao\FOV\FOV\obj\Release\FOV.Fov.resources
+C:\Users\Yao\source\repos\surfyao\FOV\FOV\obj\Release\FOV.Properties.Resources.resources
+C:\Users\Yao\source\repos\surfyao\FOV\FOV\obj\Release\FOV.csproj.GenerateResource.cache
+C:\Users\Yao\source\repos\surfyao\FOV\FOV\obj\Release\FOV.csproj.CoreCompileInputs.cache
+C:\Users\Yao\source\repos\surfyao\FOV\FOV\obj\Release\FOV.csproj.CopyComplete
+C:\Users\Yao\source\repos\surfyao\FOV\FOV\obj\Release\FOV.exe
+C:\Users\Yao\source\repos\surfyao\FOV\FOV\obj\Release\FOV.pdb
+C:\Users\Yao\source\repos\surfyao\FOV\FOV\obj\Release\FOV.csprojAssemblyReference.cache
